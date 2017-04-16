@@ -1,5 +1,5 @@
 # MP2---The-Dioxin-Menace
-The sources of the demo Mutant inc. presented on 2000-08-27 at the LTP4 party in Paris, France
+The sources of the OpenGL rework of the demo Mutant inc. presented on 2000-08-27 at the LTP4 party in Paris, France
 
 
 --------------------------------------------------------------------------
@@ -65,13 +65,16 @@ The sources of the demo Mutant inc. presented on 2000-08-27 at the LTP4 party in
                /_/  /_/  \___/_/ /\__/\__/\__/  /____/                    
                             |___/                                         
 
+ -------------------------------------------------------------------------
                          - the dioxin menace -
  -------------------------------------------------------------------------
+                       - Fix+Rmx Release 2.0.2 -
  -------------------------------------------------------------------------
 
-  presented at Orange Juice's LTP4 d�mo-compo                             
-  ( august 25-26-27, 2000, France )                                       
+  Presented first at Orange Juice's LTP4 d�mo-compo and got 2nd place
+  ( august 25-26-27, 2000, Paris, France )                                       
 
+  Due to many synch issues, it was fixed in autumn 2001.
 
 
   Graphs: Danube - Splif - Acetone - Fra - AlexKidd                       
@@ -82,18 +85,23 @@ The sources of the demo Mutant inc. presented on 2000-08-27 at the LTP4 party in
 
   Release notes:
 
-  - You need a Windows 9x/2K OS with 64+Mb of memory and Direct-X v7+
+  - You need a Win32 OS with 64+Mb of memory and openGL supported
 
-  - There may be blitting bugs on ATI graphic cards. Those bugs occur when
-    some sprites are hard-blitted. This is probably due to a direct-draw
-    flaw (maybe a coder-flaw also)                                                       
+  - The music player is minifmod 1.60
 
-  - The windowed mode may not work on Nvidia graphic cards                  
+  - OpenGL acceleration has replaced DirectX (DDraw doesn't know 2D accel...)
 
-  - Sometimes you may experience slow-downs. This is because software
-    alpha-channel routines are highly used (DD doesn't support hard-alpha).
+  - Full sources will be released soon !!!
 
-  - The music player is fmod 3.20 / minifmod 1.20
+
+
+  - The music synchronization problems are fixed
+
+  - There are a few improvements in some parts'effects
+
+  - No slow-downs anymore in the parts with lots of gfx
+
+
 
   - Here, you have the effects & timings frozen on 2000-08-20
 
@@ -102,7 +110,7 @@ The sources of the demo Mutant inc. presented on 2000-08-27 at the LTP4 party in
     in 1999, France) but was never released because it was definitely not ready...
     really not !
     Then we waited one whole year to present it in another cool french d�mo-compo.
-
+    Then we waited one whole year to  *fix*  it.
 
   - Don't even expect us to explain you the scenarii. This is the result of
     a meeting of several demo freaks in a pub in London
@@ -110,9 +118,8 @@ The sources of the demo Mutant inc. presented on 2000-08-27 at the LTP4 party in
     influences from several movies
     ...
 
-  - special thanks go to Arthur, tuo & Lord.K for programming advices
 
 
-  We hope you'll like it !                                                                          
+  We hope you'll like it again !                                                                          
  -------------------------------------------------------------------------
  -------------------------------------------------------------------------

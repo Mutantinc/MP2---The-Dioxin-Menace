@@ -1,0 +1,121 @@
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+                         _                 _      _                       
+                        | |               | |    (_)                      
+       _ __ ___   _   _ | |_  __ _  _ __  | |_    _  _ __    ___          
+      | '_ ` _ \ | | | || __|/ _` || '_ \ | __|  | || '_ \  / __|         
+      | | | | | || |_| || |_| (_| || | | || |_   | || | | || (__  _       
+      |_| |_| |_| \__,_| \__|\__,_||_| |_| \__|  |_||_| |_| \___|(_)      
+                                                                          
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+                                                                          
+                                                                          
+                                                  RR                      
+                                           RRRRRRRSRR RR                  
+                                             SRRRRRRRRRS                  
+                                          tRRRRRRRRRRS RRRRRR             
+                                        RRRRRRRRRRRR  RRRR  RR            
+                                       RRRRRRRRRRRRR  RRRR  RR  Rt        
+                  RRRRRRRRRRRS        sRRRRRRRRRRRRRR RRRRRRRR  RRR       
+               RRRRRRRRRRRRRRRRRRRSRRRRRRRRRRRRRRRRRRR RRRRRRtCR sRR      
+            RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRC SR RRRRRRRRR     
+          tRRRRRRRRRRRRRRRRRRRRRRRRRRRRRC      RRRRRRRRRR  cRRRRRRRRRR    
+         RRRRRRRRRRRRRRRRRRRRRRRRRRR            RRRRRRRRRRRS RRRRRRRRRR   
+        RRRRRRRRRRRRRRRRRRRRRRRR                RRRRRRRRRR tR   RRRRRRR   
+       RRRRRRRRRRRRRRRRRRRRRRR                   tRRRRRRRR  RRRR RRRRRR   
+      RRRRRRRRRRRRRRRRRRRRRRR                     RRRRRRRR  t     RRRRR   
+     RRRRRRRRRRRRRRRRRRRRRRR                       RRRRRR          RRRt   
+    RRRRRRRRRRRRRRRRR RRRRR                         SRRRt          RRR    
+   CRRRRc RRRRRR RRS  RRRRS           RRR   cRRRRR                 RR     
+   RRRs   RRR         RRRR           RR          RRR               R      
+   Rt     RR          RRRRc          RR  S        RRRt                    
+   R                  RRRRR          RRRRRRR       RRRS                   
+                      RRRRRS          RRRRRRC      RRRRS                  
+                      RRRRRR           RRRRR       RRRRR                  
+                      RRRRRRR           SRc        RRRRR                  
+                       RRRRRRR                     RRRRRR                 
+                       sRRRRRRR                    RRRRRR                 
+                        tRRRRRRR                   RRRRRS                 
+                         RRRRRRRR                 sRRRRR                  
+                          SRRRRRRRR               RRRRRR                  
+                           SRRRRRRRR             RRRRRR                   
+                             RRRRRRRRRRRRRR   SRRRRR                      
+                               RRRRRRRRRRRRRRRRRRt                        
+                                 sRRRRRsSC                                
+                                                                          
+                                                                          
+                              ________                                    
+                             /_  __/ /  ___                               
+                              / / / _ \/ -_)                              
+                             /_/ /_//_/\__/                               
+                                                                          
+        __  ___     __            __    ___            __    __           
+       /  |/  /_ __/ /____ ____  / /_  / _ \___  __ __/ /__ / /____       
+      / /|_/ / // / __/ _ `/ _ \/ __/ / ___/ _ \/ // / / -_) __/_ /       
+     /_/  /_/\_,_/\__/\_,_/_//_/\__/ /_/   \___/\_,_/_/\__/\__//__/       
+                                                                          
+                  ___             _         __     ___                    
+                 / _ \_______    (_)__ ____/ /_   |_  |                   
+                / ___/ __/ _ \  / / -_) __/ __/  / __/                    
+               /_/  /_/  \___/_/ /\__/\__/\__/  /____/                    
+                            |___/                                         
+                                                                    
+ -------------------------------------------------------------------------
+                         - the dioxin menace -
+ -------------------------------------------------------------------------
+                       - Fix+Rmx Release 2.0.2 -
+ -------------------------------------------------------------------------
+                                                                          
+  Presented first at Orange Juice's LTP4 démo-compo and got 2nd place
+  ( august 25-26-27, 2000, Paris, France )                                       
+                                                                          
+  Due to many synch issues, it was fixed in autumn 2001.
+
+                                                                          
+  Graphs: Danube - Splif - Acetone - Fra - AlexKidd                       
+  Music:  Rez                                                            
+  Code:   Mars                                                            
+
+                                                                          
+                                                                          
+  Release notes:
+
+  - You need a Win32 OS with 64+Mb of memory and openGL supported
+
+  - The music player is minifmod 1.60
+
+  - OpenGL acceleration has replaced DirectX (DDraw doesn't know 2D accel...)
+
+  - Full sources will be released soon !!!
+
+
+
+  - The music synchronization problems are fixed
+
+  - There are a few improvements in some parts'effects
+
+  - No slow-downs anymore in the parts with lots of gfx
+
+
+
+  - Here, you have the effects & timings frozen on 2000-08-20
+
+  - This délirium was initially coded for the LTP3 and during the LTP3, in 1999, 
+    ( as a sequel of the Mutant Poulets project presented at Volcanic party 5,
+    in 1999, France) but was never released because it was definitely not ready...
+    really not !
+    Then we waited one whole year to present it in another cool french démo-compo.
+    Then we waited one whole year to  *fix*  it.
+
+  - Don't even expect us to explain you the scenarii. This is the result of
+    a meeting of several demo freaks in a pub in London
+    self deliriums of 5 graphicians
+    influences from several movies
+    ...
+                                                                          
+
+
+  We hope you'll like it again !                                                                          
+ -------------------------------------------------------------------------
+ -------------------------------------------------------------------------
