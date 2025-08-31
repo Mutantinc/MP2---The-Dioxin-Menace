@@ -63,9 +63,6 @@
     <ClInclude Include="mg_fmod.h">
       <Filter>Music &amp; Sfx</Filter>
     </ClInclude>
-    <ClInclude Include="..\minifmod\lib\minifmod.h">
-      <Filter>Music &amp; Sfx</Filter>
-    </ClInclude>
     <ClInclude Include="mg_effects.h">
       <Filter>TimeLine</Filter>
     </ClInclude>
@@ -84,18 +81,26 @@
     <ClInclude Include="resource.h">
       <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="..\misc\lzw_dec.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="..\zlib\zlib.h">
-      <Filter>External</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\MP.ico">
-      <Filter>Resources</Filter>
-    </Image>
-    <Image Include="MP.ico" />
+    <ClInclude Include="mg_bone.h" />
+    <ClInclude Include="mg_camera.h" />
+    <ClInclude Include="mg_extsetup.h" />
+    <ClInclude Include="mg_face.h" />
+    <ClInclude Include="mg_impexp.h" />
+    <ClInclude Include="mg_keyframe.h" />
+    <ClInclude Include="mg_light.h" />
+    <ClInclude Include="mg_mapping.h" />
+    <ClInclude Include="mg_material.h" />
+    <ClInclude Include="mg_matrix.h" />
+    <ClInclude Include="mg_mesh.h" />
+    <ClInclude Include="mg_mesh2.h" />
+    <ClInclude Include="mg_object.h" />
+    <ClInclude Include="mg_quaternion.h" />
+    <ClInclude Include="mg_scene.h" />
+    <ClInclude Include="mg_setup.h" />
+    <ClInclude Include="mg_tempo.h" />
+    <ClInclude Include="mg_texture.h" />
+    <ClInclude Include="mg_vector.h" />
+    <ClInclude Include="mg_vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="mp2.rc">
@@ -104,5 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mp2rmx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data.asm" />
+    <None Include="rtlib2.asm" />
   </ItemGroup>
 </Project>
