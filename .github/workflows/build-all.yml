@@ -1,0 +1,14 @@
+name: build-all
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+    - name: Build Debug|X86
+      run: msbuild .\mp2rmx\mp2rmx.sln /p:Configuration=Debug /p:Platform=x86
+    - name: Build Release|X86
+      run: msbuild .\mp2rmx\mp2rmx.sln /p:Configuration=Release /p:Platform=x86
