@@ -69,7 +69,7 @@ public:
 		return _size;
 	}
 
-	inline capacity()
+	inline uint capacity()
 	{
 		return _capa;
 	}
