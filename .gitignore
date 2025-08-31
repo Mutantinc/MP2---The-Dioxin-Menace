@@ -1,0 +1,5 @@
+﻿*.user
+*.aps
+.vs
+_Intermediate
+_Builds
