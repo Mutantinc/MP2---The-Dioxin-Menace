@@ -299,6 +299,8 @@ bool CreateWin()
 
 	if (mgFullScreen)
 	{
+		fulsize.right = GetSystemMetrics( SM_CXSCREEN );
+		fulsize.bottom = GetSystemMetrics( SM_CYSCREEN );
 		WindowRect.right = fulsize.right;
 		WindowRect.bottom = fulsize.bottom;
 	}
@@ -336,8 +338,8 @@ bool CreateWin()
 		DEVMODE dmScreenSettings;								//device mode
 		memset(&dmScreenSettings,0,sizeof(dmScreenSettings));	//makes sure memory's cleared
 		dmScreenSettings.dmSize=sizeof(dmScreenSettings);		//size of the devmode structure
-		dmScreenSettings.dmPelsWidth	= mgWidth;				//selected screen width
-		dmScreenSettings.dmPelsHeight	= mgHeight;				//selected screen height
+		dmScreenSettings.dmPelsWidth	= fulsize.right;		//selected screen width
+		dmScreenSettings.dmPelsHeight	= fulsize.bottom;		//selected screen height
 		dmScreenSettings.dmBitsPerPel	= mgDepth;				//selected bits per pixel
 		dmScreenSettings.dmFields=DM_BITSPERPEL|DM_PELSWIDTH|DM_PELSHEIGHT;
 		
