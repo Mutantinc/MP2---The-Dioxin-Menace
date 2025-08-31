@@ -446,6 +446,7 @@ BOOL CALLBACK mgSkinSetupDlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 		butstart =	mgSDlg->AddButton( NULL, mgSDlg->AddBitmap( launcher_start_, MG_DATA_DEFAULT, PURPLE ), 86, 258, MG_SKIN_OFF );
 		GetClientRect( GetDesktopWindow(), &winrect );
 		SetWindowPos( hWnd, HWND_TOPMOST, (winrect.right-mgSDlg->MainSkin.width)/2, (winrect.bottom-mgSDlg->MainSkin.height)/2, mgSDlg->MainSkin.width, mgSDlg->MainSkin.height, SWP_SHOWWINDOW );
+		mgSDlg->Redraw = true;
 		return TRUE;
 		break;
 		
@@ -463,6 +464,7 @@ BOOL CALLBACK mgSkinSetupDlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 				firstpaint = false;
 				mgSDlg->GetBackground();
 			}
+			mgSDlg->Redraw = true;
 			ShowWindow( hWnd, SW_SHOWNORMAL );
 		}
 		return 0;
