@@ -99,8 +99,8 @@
 #endif
 
 
-#undef MG_USE_GIF				//to enable the gif decoder
-//#define MG_USE_GIF
+//#undef MG_USE_GIF				//to enable the gif decoder
+#define MG_USE_GIF
 #undef MG_USE_JPG				//to enable the jpg decoder (~9200 bytes footprint)
 //#define MG_USE_JPG
 

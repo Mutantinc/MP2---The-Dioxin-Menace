@@ -38,12 +38,12 @@ void mgSnowInit();
 //---------------------------------------------------------------------------------------------
 //RESIZING THE OPENGL VIEWPORT
 //---------------------------------------------------------------------------------------------
-GLvoid ReSizeScene(int width, int height)			//resize and initialize the GL viewport (not the window)
+GLvoid ReSizeScene(int x, int y, int width, int height)			//resize and initialize the GL viewport (not the window)
 {
 	if (height==0) {height=1;}						//prevent a divide by zero by making height equal one
 
 	
-	glViewport(0, 0, width, height);				//reset the current viewport
+	glViewport(x, y, width, height);				//reset the current viewport
 
 	if( mgViewPortMode )
 		mgViewPortMode();
@@ -299,6 +299,8 @@ bool CreateWin()
 
 	if (mgFullScreen)
 	{
+		fulsize.right = GetSystemMetrics( SM_CXSCREEN );
+		fulsize.bottom = GetSystemMetrics( SM_CYSCREEN );
 		WindowRect.right = fulsize.right;
 		WindowRect.bottom = fulsize.bottom;
 	}
@@ -336,8 +338,8 @@ bool CreateWin()
 		DEVMODE dmScreenSettings;								//device mode
 		memset(&dmScreenSettings,0,sizeof(dmScreenSettings));	//makes sure memory's cleared
 		dmScreenSettings.dmSize=sizeof(dmScreenSettings);		//size of the devmode structure
-		dmScreenSettings.dmPelsWidth	= mgWidth;				//selected screen width
-		dmScreenSettings.dmPelsHeight	= mgHeight;				//selected screen height
+		dmScreenSettings.dmPelsWidth	= fulsize.right;		//selected screen width
+		dmScreenSettings.dmPelsHeight	= fulsize.bottom;		//selected screen height
 		dmScreenSettings.dmBitsPerPel	= mgDepth;				//selected bits per pixel
 		dmScreenSettings.dmFields=DM_BITSPERPEL|DM_PELSWIDTH|DM_PELSHEIGHT;
 		
@@ -474,7 +476,15 @@ bool CreateWin()
 	/****** may not be necessary because ShowWindow generates a WM_SIZE message... */
 	//---------------------------------------------------
 	mgFullScreen ? cursize = fulsize : cursize = winsize;
-	ReSizeScene(cursize.right, cursize.bottom);
+	if ( mgAspectRatio )
+	{
+		int newWidth = mgWidth * cursize.bottom / mgHeight;
+		ReSizeScene( ( cursize.right - newWidth ) / 2, 0, newWidth, cursize.bottom );
+	}
+	else
+	{
+		ReSizeScene( 0, 0, cursize.right, cursize.bottom );
+	}
 	//---------------------------------------------------
 
 #ifdef MG_USE_SMALLEST_CODE
@@ -587,20 +597,28 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 		{
 			GetWinS(hWnd, &cursize);
 
-			if( mgAspectRatio && active )
+			if ( !mgFullScreen )
 			{
-				cursize.bottom = mgHeight*cursize.right/mgWidth;
-				RECT temp = { 0, 0, cursize.right, cursize.bottom };
-				AdjustWindowRectEx( &temp, dwStyle, FALSE, dwExStyle );
-				temp.right -= temp.left;
-				temp.bottom -= temp.top;
-				GetWinP( hWnd, &temp );
-				cursize.left = temp.left;
-				cursize.top = temp.top;
-				MoveWindow( hWnd, temp.left, temp.top, temp.right, temp.bottom, TRUE );
+				if ( mgAspectRatio && active && wParam == 0 )
+				{
+					cursize.bottom = mgHeight * cursize.right / mgWidth;
+					RECT temp = { 0, 0, cursize.right, cursize.bottom };
+					AdjustWindowRectEx( &temp, dwStyle, FALSE, dwExStyle );
+					temp.right -= temp.left;
+					temp.bottom -= temp.top;
+					GetWinP( hWnd, &temp );
+					cursize.left = temp.left;
+					cursize.top = temp.top;
+					MoveWindow( hWnd, temp.left, temp.top, temp.right, temp.bottom, TRUE );
+					ReSizeScene( 0, 0, cursize.right, cursize.bottom );
+				}
+				else
+				{
+					int newWidth = mgWidth * cursize.bottom / mgHeight;
+					ReSizeScene( ( cursize.right - newWidth ) / 2, 0, newWidth, cursize.bottom );
+				}
 			}
-			
-			ReSizeScene(cursize.right, cursize.bottom);
+
 			//ReSizeScene(LOWORD(lParam), HIWORD(lParam));	//works too
 			return 0;
 		}

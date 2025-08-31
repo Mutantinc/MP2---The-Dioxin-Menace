@@ -154,7 +154,7 @@ void e0122(void)
 
 
 	uint inttm1=(e01t[2]/2)-1500, inttm2=(e01t[2]/2)+1500;	//effet SW dure 3000
-	const wf=80;	//largeur finale
+	const int wf=80;	//largeur finale
 
 	if(mgTime>inttm1 && mgTime<inttm2)
 	{
@@ -552,7 +552,7 @@ void e0301(void)
 
 void e0302(void)
 {
-	const demit=1400;
+	const int demit=1400;
 	int xb=(mgWidth*mgTime)/demit;
 	int yb=((xb-320)*(xb-320))/2000+280;
 

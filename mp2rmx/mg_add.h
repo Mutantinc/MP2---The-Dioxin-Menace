@@ -20,7 +20,8 @@
 uint pow2over( uint x )	//to increase x to the next power of 2
 {
 	uint t = x;
-	for( sint i=-1; t; t=t>>1, i++ );
+	sint i = 0;
+	for( i=-1; t; t=t>>1, i++ );
 	uint y=1<<i;
 	if( x!=y )
 		y=y<<1;

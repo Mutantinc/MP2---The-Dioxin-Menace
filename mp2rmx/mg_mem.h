@@ -40,6 +40,7 @@ int (*mgRead)( void* buffer, int size, uint handle );
 void (*mgSeek)( uint handle, int pos, signed char mode );
 int (*mgTell)( uint handle );
 uint8 (*mgGetc)( uint handle );
+uint8 (*mgEof)( uint handle );
 
 void mgSetDataAccessMode( uint mode );
 uint	mgDataAccessMode;
@@ -85,6 +86,11 @@ int mgFileTell(uint handle)
 uint8 mgFileGetc( uint handle)
 {
 	return (uint8)fgetc((FILE*)handle);
+}
+
+uint8 mgFileEof( uint handle)
+{
+	return (uint8)feof((FILE*)handle);
 }
 
 #endif
@@ -181,6 +187,13 @@ uint8 mgMemGetc( uint handle )	//sans vérification
 	return buffer;
 }
 
+
+
+uint8 mgMemEof( uint handle )
+{
+	MEMFILE * memfile = (MEMFILE *)handle;
+	return memfile->pos >= memfile->length;
+}
 
 
 
@@ -296,6 +309,14 @@ uint8 mgIncGetc( uint handle)
 }
 
 
+uint8 mgIncEof( uint handle )
+{
+	mgSetDataAccessMode( mgDataAccessModeSaved );
+	MEMFILE * memfile = (MEMFILE *)handle;
+	uint8 result = memfile->pos >= memfile->length;
+	mgSetDataAccessMode( MG_DATA_INCLUDED );
+	return result;
+}
 
 
 //-----------------------------------------------------------------------------------------
@@ -497,6 +518,7 @@ void mgSetDataAccessMode( uint mode )
 		mgSeek = mgMemSeek;
 		mgTell = mgMemTell;
 		mgGetc = mgMemGetc;
+		mgEof = mgMemEof;
 		break;
 
 #ifndef MG_USE_SMALLEST_CODE
@@ -508,6 +530,7 @@ void mgSetDataAccessMode( uint mode )
 		mgSeek = mgIncSeek;
 		mgTell = mgIncTell;
 		mgGetc = mgIncGetc;
+		mgEof = mgIncEof;
 		break;
 
 	case MG_DATA_FILE:
@@ -517,6 +540,7 @@ void mgSetDataAccessMode( uint mode )
 		mgSeek = mgFileSeek;
 		mgTell = mgFileTell;
 		mgGetc = mgFileGetc;
+		mgEof = mgFileEof;
 		break;
 
 	case MG_DATA_MEMORY:
@@ -526,6 +550,7 @@ void mgSetDataAccessMode( uint mode )
 		mgSeek = mgMemSeek;
 		mgTell = mgMemTell;
 		mgGetc = mgMemGetc;
+		mgEof = mgMemEof;
 		break;
 
 	case MG_DATA_RC:
@@ -535,6 +560,7 @@ void mgSetDataAccessMode( uint mode )
 		mgSeek = mgMemSeek;
 		mgTell = mgMemTell;
 		mgGetc = mgMemGetc;
+		mgEof = mgMemEof;
 		break;
 
 	case MG_DATA_ZLIB_FILE:
@@ -544,6 +570,7 @@ void mgSetDataAccessMode( uint mode )
 		mgSeek = mgMemSeek;
 		mgTell = mgMemTell;
 		mgGetc = mgMemGetc;
+		mgEof = mgMemEof;
 		break;
 
 	case MG_DATA_ZLIB_MEMORY:
@@ -553,6 +580,7 @@ void mgSetDataAccessMode( uint mode )
 		mgSeek = mgMemSeek;
 		mgTell = mgMemTell;
 		mgGetc = mgMemGetc;
+		mgEof = mgMemEof;
 		break;
 
 #endif
