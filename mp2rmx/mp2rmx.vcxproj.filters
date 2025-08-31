@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="General">
+      <UniqueIdentifier>{79b498cd-bbf7-44eb-836b-c3786d35af5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL">
+      <UniqueIdentifier>{2370cddf-ff89-4254-9f37-7b8219856ad1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Music &amp; Sfx">
+      <UniqueIdentifier>{8f14ca75-582b-4391-8b9c-1fe56623268e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TimeLine">
+      <UniqueIdentifier>{3182e2de-0dca-47af-a131-1d36558a94a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs">
+      <UniqueIdentifier>{56a3dfb6-6cc7-46a5-81d5-d921c0bcdd70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{65a6582d-52cf-466d-b0a7-63e4f5d0e84a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External">
+      <UniqueIdentifier>{fd1320ad-cc48-4687-9aaa-2386c50549e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mg_add.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_crt.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_defines.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_global.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_keyb.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_list.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_mem.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_types.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="rtlib2.h">
+      <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_ogl.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_ogl2D.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_ogltk.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_fmod.h">
+      <Filter>Music &amp; Sfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\minifmod\lib\minifmod.h">
+      <Filter>Music &amp; Sfx</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_effects.h">
+      <Filter>TimeLine</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_time.h">
+      <Filter>TimeLine</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_timeline.h">
+      <Filter>TimeLine</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_skindlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="data.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\misc\lzw_dec.h">
+      <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zlib\zlib.h">
+      <Filter>External</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\MP.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="MP.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="mp2.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mp2rmx.cpp" />
+  </ItemGroup>
+</Project>
