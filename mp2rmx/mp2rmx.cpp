@@ -57,7 +57,7 @@
 #ifdef MG_USE_OPENGL
 #include <gl/gl.h>					//OpenGL 32
 #include <gl/glu.h>					//GLu32
-#include <gl/glaux.h>				//GLaux
+//#include <gl/glaux.h>				//GLaux
 #ifdef MG_USE_OPENGL_EXT
 #include "glext.h"					//extensions openGL 1.2 (multitexturing...)
 #endif

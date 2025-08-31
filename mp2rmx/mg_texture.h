@@ -239,6 +239,7 @@ public:
 //-------------------------------------------------------------------
 	inline void LoadBMP(char* name, uint mode)	//only MG_DATA_FILE
 	{
+		/*
 #ifdef MG_USE_SMALLEST_CODE
 		//no need to load heavy bitmaps when trying to generate a smaller code
 #else
@@ -262,6 +263,7 @@ public:
 			Format = MG_RGB;
 		}
 #endif
+		*/
 	}
 	
 	
