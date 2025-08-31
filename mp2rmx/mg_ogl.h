@@ -38,12 +38,12 @@ void mgSnowInit();
 //---------------------------------------------------------------------------------------------
 //RESIZING THE OPENGL VIEWPORT
 //---------------------------------------------------------------------------------------------
-GLvoid ReSizeScene(int width, int height)			//resize and initialize the GL viewport (not the window)
+GLvoid ReSizeScene(int x, int y, int width, int height)			//resize and initialize the GL viewport (not the window)
 {
 	if (height==0) {height=1;}						//prevent a divide by zero by making height equal one
 
 	
-	glViewport(0, 0, width, height);				//reset the current viewport
+	glViewport(x, y, width, height);				//reset the current viewport
 
 	if( mgViewPortMode )
 		mgViewPortMode();
@@ -474,7 +474,15 @@ bool CreateWin()
 	/****** may not be necessary because ShowWindow generates a WM_SIZE message... */
 	//---------------------------------------------------
 	mgFullScreen ? cursize = fulsize : cursize = winsize;
-	ReSizeScene(cursize.right, cursize.bottom);
+	if ( mgAspectRatio )
+	{
+		int newWidth = mgWidth * cursize.bottom / mgHeight;
+		ReSizeScene( ( cursize.right - newWidth ) / 2, 0, newWidth, cursize.bottom );
+	}
+	else
+	{
+		ReSizeScene( 0, 0, cursize.right, cursize.bottom );
+	}
 	//---------------------------------------------------
 
 #ifdef MG_USE_SMALLEST_CODE
@@ -587,20 +595,28 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 		{
 			GetWinS(hWnd, &cursize);
 
-			if( mgAspectRatio && active )
+			if ( !mgFullScreen )
 			{
-				cursize.bottom = mgHeight*cursize.right/mgWidth;
-				RECT temp = { 0, 0, cursize.right, cursize.bottom };
-				AdjustWindowRectEx( &temp, dwStyle, FALSE, dwExStyle );
-				temp.right -= temp.left;
-				temp.bottom -= temp.top;
-				GetWinP( hWnd, &temp );
-				cursize.left = temp.left;
-				cursize.top = temp.top;
-				MoveWindow( hWnd, temp.left, temp.top, temp.right, temp.bottom, TRUE );
+				if ( mgAspectRatio && active && wParam == 0 )
+				{
+					cursize.bottom = mgHeight * cursize.right / mgWidth;
+					RECT temp = { 0, 0, cursize.right, cursize.bottom };
+					AdjustWindowRectEx( &temp, dwStyle, FALSE, dwExStyle );
+					temp.right -= temp.left;
+					temp.bottom -= temp.top;
+					GetWinP( hWnd, &temp );
+					cursize.left = temp.left;
+					cursize.top = temp.top;
+					MoveWindow( hWnd, temp.left, temp.top, temp.right, temp.bottom, TRUE );
+					ReSizeScene( 0, 0, cursize.right, cursize.bottom );
+				}
+				else
+				{
+					int newWidth = mgWidth * cursize.bottom / mgHeight;
+					ReSizeScene( ( cursize.right - newWidth ) / 2, 0, newWidth, cursize.bottom );
+				}
 			}
-			
-			ReSizeScene(cursize.right, cursize.bottom);
+
 			//ReSizeScene(LOWORD(lParam), HIWORD(lParam));	//works too
 			return 0;
 		}
