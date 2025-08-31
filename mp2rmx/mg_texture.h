@@ -15,7 +15,9 @@
 #define _MG_TEXTURE_H_
 
 #ifdef MG_USE_GIF
-#include "../misc/lzw_dec.h"		//for GIFs
+//#include "../misc/lzw_dec.h"		//for GIFs
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"		//for GIFs
 #endif
 
 #ifdef MG_USE_JPG
@@ -531,7 +533,30 @@ inline void LoadGIF(char* name, uint mode)
 			return; //NULL;
 		}
 #endif
-	
+
+
+	stbi_io_callbacks callbacks;
+	callbacks.read = []( void * user, char * data, int size )
+		{
+			return mgRead( data, size, *(uint *)user );
+		};
+	callbacks.skip = []( void * user, int n )
+		{
+			mgSeek( *(uint *)user, n, SEEK_CUR );
+		};
+	callbacks.eof = []( void * user )
+		{
+			return (int)mgEof( *(uint *)user );
+		};
+
+	int comp = 4;
+	uint8 * rawData = stbi_load_from_callbacks( &callbacks, &fp, &Width, &Height, &comp, 4 );
+	Data = (uint8 *)malloc( Width * Height * 4 );
+	memcpy( Data, rawData, Width * Height * 4 );
+	stbi_image_free( rawData );
+	mgClose( fp );
+
+#ifdef OLD_GIF_LOADER
 	mgRead( buffer, 13, fp );
 
 	//checks the file type
@@ -614,6 +639,7 @@ inline void LoadGIF(char* name, uint mode)
 //	}
 
 	RELEASE( image8b );
+#endif
 	Format = MG_RGBA;
 }
 #endif
